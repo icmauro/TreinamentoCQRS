@@ -54,6 +54,7 @@ namespace TreinamentoCQRS.Data.Repositories
             await _dataContext.SaveChangesAsync();
         }
 
+
         public void Dispose()
         {
             _dataContext.Dispose();

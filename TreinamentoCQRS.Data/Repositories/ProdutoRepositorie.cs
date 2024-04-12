@@ -21,7 +21,12 @@ namespace TreinamentoCQRS.Data.Repositories
 
         private async Task<Produto> BuscarPorId(int Id)
         {
-            return await _DbContext.Produtos.FirstAsync(x => x.Id == Id);        
+            var Produto = await _DbContext.Produtos.FirstOrDefaultAsync(x => x.Id == Id);
+
+            if (Produto == null)
+                return null;
+
+            return Produto;        
         }
 
         public async Task<Produto> Adicionar(Produto produto)
@@ -34,6 +39,9 @@ namespace TreinamentoCQRS.Data.Repositories
         public async Task<Produto> Alterar(Produto produto)
         {
             var ProdutoPorId = await BuscarPorId(produto.Id);
+
+            if (ProdutoPorId == null)
+                return null;
 
             ProdutoPorId.Descricao = produto.Descricao;
             ProdutoPorId.Marca = produto.Marca;
@@ -52,6 +60,9 @@ namespace TreinamentoCQRS.Data.Repositories
         public async Task<Produto> Editar(Produto produto)
         {
             var ProdutoPorId = await BuscarPorId(produto.Id);
+
+            if (ProdutoPorId == null)
+                return null;
 
             ProdutoPorId.Descricao = produto.Descricao;
             ProdutoPorId.Marca = produto.Marca;

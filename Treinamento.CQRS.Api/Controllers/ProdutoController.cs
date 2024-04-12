@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TreinamentoCQRS.Application.Members.Commands;
 using TreinamentoCQRS.Domain.Entities;
 using TreinamentoCQRS.Domain.Interface;
+using TreinamentoCQRS.Domain.View;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Treinamento.CQRS.Api.Controllers
 {
@@ -9,37 +13,47 @@ namespace Treinamento.CQRS.Api.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        private readonly IProdutoBussines _produtoBussines;
-        public ProdutoController(IProdutoBussines produtoBussines)
+        private readonly IMediator _mediator;
+        public ProdutoController(IMediator mediator)
         {
-            _produtoBussines = produtoBussines;
+            _mediator = mediator;
         }
 
-        [HttpPost("Cadastrar")]
-        public async Task<IActionResult> Cadastrar([FromBody] Produto produto)
+        [HttpPost]
+        public async Task<IActionResult> Cadastrar([FromBody] CriarProdutoCommand command)
         {
-            var Produto = await _produtoBussines.CadastrarProduto(produto);
+            var Produto = await _mediator.Send(command);
 
-            return Ok(Produto);
+            return CreatedAtAction("", new { id = Produto.Id }, Produto);
+
 
         }
 
         [HttpPost("{id}")]
-        public async Task<IActionResult> Alterar([FromBody] Produto produto, int id)
+        public async Task<IActionResult> Alterar([FromBody] AtualizarProdutoCommand command, int id)
         {
-            produto.Id = id;
-            var Produto = await _produtoBussines.AlterarProduto(produto);
+            command.Id = id;
 
-            return Ok(Produto);
+            var Produto = await _mediator.Send(command);
+
+            if(Produto != null)
+                return Ok(Produto);
+            else
+              return NotFound();
+
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Editar([FromBody] Produto produto, int id)
+        public async Task<IActionResult> Editar([FromBody] EditarProdutoCommand command, int id)
         {
-            produto.Id = id;
-            var Produto = await _produtoBussines.EditarProduto(produto);
+            command.Id = id;
 
-            return Ok(Produto);
+            var Produto = await _mediator.Send(command);
+
+            if (Produto != null)
+                return Ok(Produto);
+            else
+                return NotFound();
         }
 
     }

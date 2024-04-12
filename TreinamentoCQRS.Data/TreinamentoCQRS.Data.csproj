@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.35" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.17">
       <PrivateAssets>none</PrivateAssets>
@@ -21,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TreinamentoCQRS.Domain\TreinamentoCQRS.Domain.csproj" />
+    <ProjectReference Include="..\TreinamentoCQRS.Extensoes\TreinamentoCQRS.Extensoes.csproj" />
   </ItemGroup>
 
 </Project>

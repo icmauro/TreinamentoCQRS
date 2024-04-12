@@ -60,20 +60,20 @@ namespace TreinamentoCQRS.Domain.Validations
         public FornecedorValidation ProdutoIsNull()
         {
 
-            foreach (var produto in _fornecedor.Produtos)
-            {
-                new ProdutoValidation(produto).DescricaoIsNullOrEmpty()
-                                              .MarcaIsNullOrEmpty()
-                                              .UnidadeIsNullOrEmpty()
-                                              .QuilogramaIsNullOrEmpty()
-                                              .MetroIsNullOrEmpty()
-                                              .FotoDoProdutoIsNullOrEmpty();
+            //foreach (var produto in _fornecedor.Produtos)
+            //{
+            //    new ProdutoValidation(produto).DescricaoIsNullOrEmpty()
+            //                                  .MarcaIsNullOrEmpty()
+            //                                  .UnidadeIsNullOrEmpty()
+            //                                  .QuilogramaIsNullOrEmpty()
+            //                                  .MetroIsNullOrEmpty()
+            //                                  .FotoDoProdutoIsNullOrEmpty();
 
-                if (produto.ListaDeErros.Count > 0)
-                {
-                    _fornecedor.ListaDeErros.AddRange(produto.ListaDeErros);
-                }
-            }
+            //    if (produto.ListaDeErros.Count > 0)
+            //    {
+            //        _fornecedor.ListaDeErros.AddRange(produto.ListaDeErros);
+            //    }
+            //}
 
 
 
@@ -82,8 +82,16 @@ namespace TreinamentoCQRS.Domain.Validations
 
 
         public bool IsValid()
-        {
-            return _fornecedor.ListaDeErros.Count == 0 ? true : false;
+        { 
+            var sucesso = false;
+
+            if (_fornecedor.ListaDeErros.Count == 0)
+            {
+                sucesso = true;
+                //_fornecedor.Sucesso = true;
+            }
+
+            return sucesso;
         }
     }
 }

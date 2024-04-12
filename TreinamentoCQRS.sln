@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreinamentoCQRS.Application", "TreinamentoCQRS.Application\TreinamentoCQRS.Application.csproj", "{0A84621D-DB8D-4CA9-8384-3250E0DE9BDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreinamentoCQRS.Application", "TreinamentoCQRS.Application\TreinamentoCQRS.Application.csproj", "{0A84621D-DB8D-4CA9-8384-3250E0DE9BDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreinamentoCQRS.CrossCuting", "TreinamentoCQRS.CrossCuting\TreinamentoCQRS.CrossCuting.csproj", "{7968A8C5-ED66-44F5-8C56-2FE47A7489EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreinamentoCQRS.CrossCuting", "TreinamentoCQRS.CrossCuting\TreinamentoCQRS.CrossCuting.csproj", "{7968A8C5-ED66-44F5-8C56-2FE47A7489EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreinamentoCQRS.Domain", "TreinamentoCQRS.Domain\TreinamentoCQRS.Domain.csproj", "{7A070C53-758E-4084-97F7-F4F0145FC8C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreinamentoCQRS.Domain", "TreinamentoCQRS.Domain\TreinamentoCQRS.Domain.csproj", "{7A070C53-758E-4084-97F7-F4F0145FC8C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreinamentoCQRS.Data", "TreinamentoCQRS.Data\TreinamentoCQRS.Data.csproj", "{6BC44943-DA93-460C-AA06-F50E37C1CB16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreinamentoCQRS.Data", "TreinamentoCQRS.Data\TreinamentoCQRS.Data.csproj", "{6BC44943-DA93-460C-AA06-F50E37C1CB16}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servico", "Servico", "{F16D0356-DBB7-4DBA-9CAC-1EF7ACD75836}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Treinamento.CQRS.Api", "Treinamento.CQRS.Api\Treinamento.CQRS.Api.csproj", "{B0DA26BE-CDCF-450A-BC65-A328680C96DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Treinamento.CQRS.Api", "Treinamento.CQRS.Api\Treinamento.CQRS.Api.csproj", "{B0DA26BE-CDCF-450A-BC65-A328680C96DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreinamentoCQRS.Extensoes", "TreinamentoCQRS.Extensoes\TreinamentoCQRS.Extensoes.csproj", "{1A59C782-FF09-4F7E-BCD5-DEFFBE0E2CDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{B0DA26BE-CDCF-450A-BC65-A328680C96DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0DA26BE-CDCF-450A-BC65-A328680C96DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0DA26BE-CDCF-450A-BC65-A328680C96DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A59C782-FF09-4F7E-BCD5-DEFFBE0E2CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A59C782-FF09-4F7E-BCD5-DEFFBE0E2CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A59C782-FF09-4F7E-BCD5-DEFFBE0E2CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A59C782-FF09-4F7E-BCD5-DEFFBE0E2CDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

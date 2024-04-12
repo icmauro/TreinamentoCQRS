@@ -8,6 +8,8 @@ using TreinamentoCQRS.Domain.Entities;
 using TreinamentoCQRS.Domain.Interface;
 using TreinamentoCQRS.Domain.Validations;
 using TreinamentoCQRS.Domain.Validations.Interface;
+using TreinamentoCQRS.Domain.View;
+using TreinamentoCQRS.Extensoes.Extensoes;
 
 namespace TreinamentoCQRS.Data.BussinesLayer
 {
@@ -22,8 +24,8 @@ namespace TreinamentoCQRS.Data.BussinesLayer
         }
         public async Task<Produto> CadastrarProduto(Produto produto)
         {
-            if(!OkValidado(produto))
-                return produto;
+            //if(!OkValidado(produto))
+            //    return produto;
 
             await _unitOfWork.produtoRepositorie.Adicionar(produto);
 
@@ -34,8 +36,8 @@ namespace TreinamentoCQRS.Data.BussinesLayer
 
         public async Task<Produto> AlterarProduto(Produto produto)
         {
-            if (!OkValidado(produto))
-                return produto;
+            //if (!OkValidado(produto))
+            //    return produto;
 
             await _unitOfWork.produtoRepositorie.Alterar(produto);
 
@@ -46,8 +48,8 @@ namespace TreinamentoCQRS.Data.BussinesLayer
 
         public async Task<Produto> EditarProduto(Produto produto)
         {
-            if (!OkValidado(produto))
-                return produto;
+            //if (!OkValidado(produto))
+            //    return produto;
 
             await _unitOfWork.produtoRepositorie.Editar(produto);
 
@@ -56,7 +58,7 @@ namespace TreinamentoCQRS.Data.BussinesLayer
             return produto;
         }
 
-        private bool OkValidado(Produto produto)
+        private bool OkValidado(ProdutoView produto)
         {
             _produtoValidation = new ProdutoValidation(produto);
 

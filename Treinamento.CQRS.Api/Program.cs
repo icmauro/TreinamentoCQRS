@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Treinamento.CQRS.Api.Filters;
 using TreinamentoCQRS.CrossCuting.Extensoes;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services.AddMvc(options =>
+{
+    options.Filters.Add(new CustomExceptionFilter());
+});
+
 
 var app = builder.Build();
 

@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using TreinamentoCQRS.Domain.Entities;
 using TreinamentoCQRS.Domain.Notificacao;
 using TreinamentoCQRS.Domain.Validations.Interface;
+using TreinamentoCQRS.Domain.View;
 
 namespace TreinamentoCQRS.Domain.Validations
 {
     public class ProdutoValidation : IValidation
     {
-        private Produto _produto;
-        public ProdutoValidation(Produto produto)
+        private ProdutoView _produto;
+        public ProdutoValidation(ProdutoView produto)
         {
             _produto = produto;
         }
@@ -79,9 +80,16 @@ namespace TreinamentoCQRS.Domain.Validations
  
         public bool IsValid()
         {
-            _produto.Sucesso = false;
+            var sucesso = false;
 
-            return _produto.ListaDeErros.Count == 0 ? true : false;
+            if (_produto.ListaDeErros.Count == 0)
+            {
+                sucesso = true;
+                _produto.Sucesso = true;
+            }
+
+
+            return sucesso;
         }
     }
 }
